@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Portfolio.ViewModels.ProjectsListingViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Alex McFarlane</h1>
+    <p class="lead">Full Stack Web Developer</p>
+</div>
+
+<div class="row">
+    @foreach (var vm in Model)
+    {
+        <div class="col-md-4 panel">
+            <h2><a href="">@vm.Title</a></h2>
+            <img class="img-responsive" src="@Url.Content(vm.ThumbnailPath)" />
+            <p>@vm.Body</p>
+        </div>
+    }
+</div>
