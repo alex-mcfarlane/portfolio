@@ -1,5 +1,4 @@
-﻿
-using Portfolio.Models;
+﻿using Portfolio.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;

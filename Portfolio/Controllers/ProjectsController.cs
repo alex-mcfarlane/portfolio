@@ -96,11 +96,19 @@ namespace Portfolio.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Project project = _context.Projects.Find(id);
+
             if (project == null)
             {
                 return HttpNotFound();
             }
-            return View(project);
+
+            ProjectEditViewModel vm = new ProjectEditViewModel();
+            vm.Categories = _context.Categories.ToList();
+            vm.Title = project.Title;
+            vm.Body = project.Body;
+            vm.ExternalLink = project.ExternalLink;
+
+            return View(vm);
         }
 
         // POST: Projects/Edit/5
@@ -108,18 +116,13 @@ namespace Portfolio.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ProjectCreateViewModel projectCreateVM)
-        {/*
-            if (id != project.ID)
-            {
-                return HttpNotFound();
-            }
-
+        public ActionResult Edit(int id, ProjectEditViewModel projectCreateVM)
+        {   
             if (ModelState.IsValid)
-            {
+            {                
                 try
                 {
-                    _service.Update(project, image);
+                    _service.Update(id, projectCreateVM.Title, projectCreateVM.Body, projectCreateVM.ExternalLink, projectCreateVM.Image, projectCreateVM.Categories);
 
                     return RedirectToAction(nameof(Index));
                 }
@@ -135,8 +138,8 @@ namespace Portfolio.Controllers
                     }
                 }
                 
-            }*/
-            return View();
+            }
+            return View(projectCreateVM);
         }
 
         // GET: Projects/Delete/5

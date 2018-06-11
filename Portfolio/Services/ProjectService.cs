@@ -50,16 +50,27 @@ namespace Portfolio.Services
             }
         }
 
-        public Project Update(Project project, HttpPostedFileBase imageFile)
+        public Project Update(int id, string title, string body, string externalLink, HttpPostedFileBase imageFile, ICollection<Category> categories)
         {
+            Project project = _context.Projects.Find(id);
+
             try
             {
-                if(imageFile != null)
+                if (project == null)
+                {
+                    throw new ModelNotFoundException("Project not found");
+                }
+
+                if (imageFile != null)
                 {
                     string fileName = _imageService.Create(imageFile);
 
                     project.SetImagePath(fileName);
                 }
+
+                project.Title = title;
+                project.Body = body;
+                project.ExternalLink = externalLink;
 
                 _context.Entry(project).State = EntityState.Modified;
                 _context.SaveChanges();

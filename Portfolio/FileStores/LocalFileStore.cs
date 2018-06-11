@@ -12,7 +12,7 @@ namespace Portfolio.FileStores
         public string Store(HttpPostedFileBase file)
         {
             string fileName = Path.GetFileName(file.FileName);
-            string dir = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "~/Images/");
+            string dir = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "Images/");
             string path = Path.Combine(dir, fileName);
 
             file.SaveAs(path);

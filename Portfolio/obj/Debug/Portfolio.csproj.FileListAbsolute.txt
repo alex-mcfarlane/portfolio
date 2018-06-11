@@ -95,3 +95,7 @@ C:\Users\amcfa\Projects\Portfolio\Portfolio\bin\Microsoft.CodeDom.Providers.DotN
 C:\Users\amcfa\Projects\Portfolio\Portfolio\obj\Debug\Portfolio.csproj.CopyComplete
 C:\Users\amcfa\Projects\Portfolio\Portfolio\obj\Debug\Portfolio.dll
 C:\Users\amcfa\Projects\Portfolio\Portfolio\obj\Debug\Portfolio.pdb
+C:\Users\amcfa\Projects\portfolio\Portfolio\bin\Unity.Abstractions.dll
+C:\Users\amcfa\Projects\portfolio\Portfolio\bin\Unity.Container.dll
+C:\Users\amcfa\Projects\portfolio\Portfolio\bin\Unity.Mvc.dll
+C:\Users\amcfa\Projects\portfolio\Portfolio\bin\WebActivatorEx.dll

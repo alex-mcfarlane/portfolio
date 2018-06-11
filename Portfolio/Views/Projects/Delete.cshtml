@@ -1,7 +1,7 @@
 ﻿@model Portfolio.Models.Project
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewBag.Title = "Delete";
 }
 
 <h2>Delete</h2>
@@ -14,32 +14,43 @@
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ExternalLink)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ExternalLink)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ImagePath)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ImagePath)
-        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Body)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.Body)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExternalLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExternalLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
     </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="ID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>
