@@ -63,16 +63,10 @@ namespace Portfolio.Controllers
         {
             if (ModelState.IsValid)
             {
-                Project project = new Project()
-                {
-                    Title = projectCreateVM.Title,
-                    ExternalLink = projectCreateVM.ExternalLink,
-                    Body = projectCreateVM.Body
-                };
-
                 try
                 {
-                    _service.Create(project, projectCreateVM.Image, projectCreateVM.SelectedItems);
+                    _service.Create(projectCreateVM.Title, projectCreateVM.Body, projectCreateVM.ExternalLink, 
+                        projectCreateVM.Image, projectCreateVM.SelectedItems);
 
                     return RedirectToAction(nameof(Index));
                 }

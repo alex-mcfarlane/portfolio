@@ -24,17 +24,30 @@ namespace Portfolio.Services
             Errors = new Dictionary<string, string>();
         }
 
-        public Project Create(Project project, HttpPostedFileBase imageFile, ICollection<int> categoryIds)
+        public Project Create(string title, string body, string externalLink, HttpPostedFileBase imageFile, ICollection<int> categoryIds)
         {
+            Project project = new Project()
+            {
+                Title = title,
+                ExternalLink = externalLink,
+                Body = body
+            };
+
             try
             {
+                // create image and set path on project
                 string fileName = _imageService.Create(imageFile);
 
                 project.SetImagePath(fileName);
 
+                // add categories to project
                 foreach(int categoryId in categoryIds)
                 {
-
+                    Category category = _context.Categories.Find(categoryId);
+                    if(category != null)
+                    {
+                        project.Categories.Add(category);
+                    }
                 }
 
                 _context.Projects.Add(project);
