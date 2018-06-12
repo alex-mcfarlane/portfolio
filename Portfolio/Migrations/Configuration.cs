@@ -1,5 +1,6 @@
 namespace Portfolio.Migrations
 {
+    using Portfolio.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -10,7 +11,6 @@ namespace Portfolio.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Portfolio.Models.PortfolioContext";
         }
 
         protected override void Seed(Portfolio.Models.PortfolioContext context)
@@ -27,6 +27,38 @@ namespace Portfolio.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.Categories.AddOrUpdate(c => c.ID,
+                new Category
+                {
+                    Title = "C#"
+                },
+                new Category
+                {
+                    Title = "ASP.NET"
+                },
+                new Category
+                {
+                    Title = "PHP"
+                },
+                new Category
+                {
+                    Title = "Node.js"
+                },
+                new Category
+                {
+                    Title = "MEAN"
+                },
+                new Category
+                {
+                    Title = "MVC"
+                },
+                new Category
+                {
+                    Title = "Vue.js"
+                }
+            );
+
+            context.SaveChanges();
         }
     }
 }
