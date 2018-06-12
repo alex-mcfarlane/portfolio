@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Portfolio.ViewModels
 {
@@ -15,11 +16,21 @@ namespace Portfolio.ViewModels
         public string Body { get; set; }
         [Required]
         public HttpPostedFileBase Image { get; set; }
-        public List<Category> Categories;
+        public List<SelectListItem> CategoriesSelectList { get; set; }
+        public List<int> SelectedItems { get; set; }
 
         public ProjectCreateViewModel()
         {
-            Categories = new List<Category>();
+            CategoriesSelectList = new List<SelectListItem>();
+            SelectedItems = new List<int>();
+        }
+
+        public void SetCategoriesSelectList(List<Category> categories)
+        {
+            foreach(Category category in categories)
+            {
+                CategoriesSelectList.Add(new SelectListItem { Text = category.Title, Value = category.ID.ToString() });
+            }
         }
     }
 }

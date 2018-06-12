@@ -24,7 +24,7 @@ namespace Portfolio.Services
             Errors = new Dictionary<string, string>();
         }
 
-        public Project Create(Project project, HttpPostedFileBase imageFile, ICollection<Category> categories)
+        public Project Create(Project project, HttpPostedFileBase imageFile, ICollection<int> categoryIds)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace Portfolio.Services
 
                 project.SetImagePath(fileName);
 
-                foreach(Category category in categories)
+                foreach(int categoryId in categoryIds)
                 {
 
                 }

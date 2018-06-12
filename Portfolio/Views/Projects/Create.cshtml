@@ -50,12 +50,7 @@
     <div class="form-group">
         <label for="Categories" class="control-label col-md-2">Categories</label>
         <div class="col-md-10">
-            <select class="form-control" id="Categories" name="Categories" multiple>
-                @foreach (var category in Model.Categories)
-                {
-                    <option value="@category.ID">@category.Title</option>
-                }
-            </select>
+            @Html.ListBoxFor(model => model.SelectedItems, Model.CategoriesSelectList);
         </div>
     </div>
 

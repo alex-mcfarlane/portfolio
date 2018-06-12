@@ -49,7 +49,7 @@ namespace Portfolio.Controllers
         public ActionResult Create()
         {
             ProjectCreateViewModel vm = new ProjectCreateViewModel();
-            vm.Categories = _context.Categories.ToList();
+            vm.SetCategoriesSelectList(_context.Categories.ToList());
 
             return View(vm);
         }
@@ -72,7 +72,7 @@ namespace Portfolio.Controllers
 
                 try
                 {
-                    _service.Create(project, projectCreateVM.Image, projectCreateVM.Categories);
+                    _service.Create(project, projectCreateVM.Image, projectCreateVM.SelectedItems);
 
                     return RedirectToAction(nameof(Index));
                 }
