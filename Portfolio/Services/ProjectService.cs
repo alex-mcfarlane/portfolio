@@ -63,7 +63,7 @@ namespace Portfolio.Services
             }
         }
 
-        public Project Update(int id, string title, string body, string externalLink, HttpPostedFileBase imageFile, ICollection<Category> categories)
+        public Project Update(int id, string title, string body, string externalLink, HttpPostedFileBase imageFile, ICollection<int> categoryIds)
         {
             Project project = _context.Projects.Find(id);
 

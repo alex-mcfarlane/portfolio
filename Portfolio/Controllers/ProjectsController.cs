@@ -79,6 +79,7 @@ namespace Portfolio.Controllers
                 }
             }
 
+            projectCreateVM.SetCategoriesSelectList(_context.Categories.ToList());
             return View(projectCreateVM);
         }
 
@@ -97,10 +98,10 @@ namespace Portfolio.Controllers
             }
 
             ProjectEditViewModel vm = new ProjectEditViewModel();
-            vm.Categories = _context.Categories.ToList();
             vm.Title = project.Title;
             vm.Body = project.Body;
             vm.ExternalLink = project.ExternalLink;
+            vm.SetCategoriesSelectList(_context.Categories.ToList());
 
             return View(vm);
         }
@@ -116,7 +117,7 @@ namespace Portfolio.Controllers
             {                
                 try
                 {
-                    _service.Update(id, projectCreateVM.Title, projectCreateVM.Body, projectCreateVM.ExternalLink, projectCreateVM.Image, projectCreateVM.Categories);
+                    _service.Update(id, projectCreateVM.Title, projectCreateVM.Body, projectCreateVM.ExternalLink, projectCreateVM.Image, projectCreateVM.SelectedItems);
 
                     return RedirectToAction(nameof(Index));
                 }
@@ -133,6 +134,8 @@ namespace Portfolio.Controllers
                 }
                 
             }
+
+            projectCreateVM.SetCategoriesSelectList(_context.Categories.ToList());
             return View(projectCreateVM);
         }
 

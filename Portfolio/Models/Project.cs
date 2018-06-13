@@ -15,6 +15,7 @@ namespace Portfolio.Models
         public Project()
         {
             _baseDir = "~/Images/";
+            Categories = new List<Category>();
         }
 
         public int ID { get; set; }

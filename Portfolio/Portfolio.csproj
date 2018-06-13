@@ -195,6 +195,7 @@
     <Compile Include="ViewModels\ProjectCreateViewModel.cs" />
     <Compile Include="ViewModels\ProjectEditViewModel.cs" />
     <Compile Include="ViewModels\ProjectsListingViewModel.cs" />
+    <Compile Include="ViewModels\ProjectViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

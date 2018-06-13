@@ -10,7 +10,7 @@ namespace Portfolio.Services
     public interface IProjectService
     {
         Project Create(string title, string body, string externalLink, HttpPostedFileBase imageFile, ICollection<int> categoryIds);
-        Project Update(int id, string title, string body, string externalLink, HttpPostedFileBase imageFile, ICollection<Category> categories);
+        Project Update(int id, string title, string body, string externalLink, HttpPostedFileBase imageFile, ICollection<int> categoryIds);
         Dictionary<string, string> Errors { get; }
     }
 }
