@@ -40,7 +40,7 @@ namespace Portfolio.Services
                
             if (!_validTypes.Contains(extension))
             {
-                Errors.Add("ImagePath", "Invalid file extension for image. Valid extensions are JPG, PNG, or GIF.");
+                Errors.Add("Image", "Invalid file extension for image. Valid extensions are JPG, PNG, or GIF.");
                 isValid = false;
             }
 
