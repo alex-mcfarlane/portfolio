@@ -192,6 +192,7 @@
     <Compile Include="Services\ImageService.cs" />
     <Compile Include="Services\IProjectService.cs" />
     <Compile Include="Services\ProjectService.cs" />
+    <Compile Include="ViewModels\HomeIndexViewModel.cs" />
     <Compile Include="ViewModels\ProjectCreateViewModel.cs" />
     <Compile Include="ViewModels\ProjectEditViewModel.cs" />
     <Compile Include="ViewModels\ProjectsListingViewModel.cs" />

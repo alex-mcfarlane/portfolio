@@ -19,22 +19,19 @@ namespace Portfolio.Controllers
 
         public ActionResult Index()
         {
-            List<ProjectsListingViewModel> projectsVM = new List<ProjectsListingViewModel>();
+            HomeIndexViewModel homeVM = new HomeIndexViewModel();
 
             foreach (Project project in _context.Projects.ToList())
             {
-                ProjectsListingViewModel projectVM = new ProjectsListingViewModel
-                {
-                    Title = project.Title,
-                    ExternalLink = project.ExternalLink,
-                    ThumbnailPath = project.ImagePath,
-                    Body = project.Body
-                };
-
-                projectsVM.Add(projectVM);
+                homeVM.Projects.Add(project);
             }
 
-            return View(projectsVM);
+            foreach (Category category in _context.Categories.ToList())
+            {
+                homeVM.Categories.Add(category);
+            }
+
+            return View(homeVM);
         }
 
         public ActionResult About()

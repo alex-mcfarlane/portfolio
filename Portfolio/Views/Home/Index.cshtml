@@ -1,42 +1,63 @@
-﻿@model IEnumerable<Portfolio.ViewModels.ProjectsListingViewModel>
+﻿@model Portfolio.ViewModels.HomeIndexViewModel
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="hero-container">
+<section class="hero-container">
     <div class="content-container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1>Hi, my name is Alex McFarlane</h1>
                         <p>I'm a full stack web developer with a passion for writing high quality, clean code that runs efficiently in high volume environments.</p>
                     </div>
-
                     <div>
                         <a href="" class="call-to-action-btn">View Projects</a>
                     </div>
                 </div>
             </div>
         </div>
-        
     </div>
-</div>
-
-<section>
-
 </section>
 
-<div class="container">
-    <div class="row">
-        @foreach (var vm in Model)
-        {
-            <div class="col-md-4 panel">
-                <h2><a href="">@vm.Title</a></h2>
-                <img class="img-responsive" src="@Url.Content(vm.ThumbnailPath)" />
-                <p>@vm.Body</p>
+<section id="about-me" class="content-block">
+    <div class="content-container">
+        <h2>About Me</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <p>3 years experience designing and developing applications with server side technologies such as PHP, C#, ASP.NET, MySQL and MSSQL, and front end technologies such as HTML5, CSS3, vanilla JavaScript, and JavaScript frameworks. Strong working knowledge of MVC architecture, RESTful JSON API's, and GIT version control.</p>
+                <p>My strong organizational skills allow me to handle multiple tasks and prioritize effectively, ensuring deliverables are met on time. A strong communicator, I work well in a team environment, but also possess the initiative to get things done individually. Passionate about software architecture and object oriented programming concepts and design principles.</p>
             </div>
-        }
+        </div>
+
     </div>
-</div>
+</section>
+
+<section id="portfolio" class="content-block">
+    <div class="content-container">
+        <h2>Portfolio</h2>
+        <div class="row">
+            <div class="col-sm-6 filters">
+                <ul>
+                    <li data-category-id="0" class="active">Show All</li>
+
+                    @foreach (var category in Model.Categories)
+                    {
+                        <li data-category-id="@category.ID">@category.Title</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var project in Model.Projects)
+            {
+                <div class="project">
+
+                </div>
+            }
+        </div>
+    </div>
+</section>
