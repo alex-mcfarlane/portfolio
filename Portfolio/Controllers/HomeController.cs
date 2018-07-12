@@ -23,7 +23,13 @@ namespace Portfolio.Controllers
 
             foreach (Project project in _context.Projects.ToList())
             {
-                homeVM.Projects.Add(project);
+                homeVM.Projects.Add(new ProjectListingViewModel {
+                    Title = project.Title,
+                    Body = project.Body,
+                    ExternalLink = project.ExternalLink,
+                    ThumbnailPath = project.ImagePath,
+                    Categories = project.Categories
+                });
             }
 
             foreach (Category category in _context.Categories.ToList())

@@ -85,6 +85,12 @@ namespace Portfolio.Services
                 project.Body = body;
                 project.ExternalLink = externalLink;
 
+                // add categories that are in the request but not on the project
+                IEnumerable<int> existingCatIds = project.Categories.Select(c => c.ID);
+                var catIdsToAdd = categoryIds.Where(c => !existingCatIds.Contains(c));
+                _context.Categories.Where(c => catIdsToAdd.Contains(c.ID))
+                    .ToList().ForEach(c => project.Categories.Add(c));
+
                 _context.Entry(project).State = EntityState.Modified;
                 _context.SaveChanges();
 

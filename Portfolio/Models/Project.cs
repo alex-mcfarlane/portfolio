@@ -54,7 +54,7 @@ namespace Portfolio.Models
             }
         }
 
-        public List<Category> Categories { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
 
         private bool UrlHeadHasString(string needle, string url)
         {
