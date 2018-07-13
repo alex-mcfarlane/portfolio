@@ -7,7 +7,7 @@
 <section class="hero-container">
     <div class="content-container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-10">
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1>Hi, my name is Alex McFarlane</h1>
@@ -39,7 +39,7 @@
     <div class="content-container">
         <h2>Portfolio</h2>
         <div class="row">
-            <div class="col-sm-6 filters">
+            <div class="col-sm-8 filters">
                 <ul id="filter">
                     <li data-category-id="0" class="active">Show All</li>
 
@@ -54,10 +54,17 @@
         <div class="row">
             @foreach (var project in Model.Projects)
             {
-                <div class=" col-sm-4 project @project.GetCategoriesAsClass()">
-                    <h3>@project.Title</h3>
-                    <img class="img-responsive" src="@Url.Content(project.ThumbnailPath)" />
-                    <p>@project.Body</p>
+                <div class=" col-sm-6 project @project.GetCategoriesAsClass()">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <img class="img-responsive" src="@Url.Content(project.ThumbnailPath)" />
+                        </div>
+                        <div class="col-sm-5">
+                            <h3>@project.Title</h3>
+                            <p>@project.Body</p>
+                            <a class="call-to-action-btn" href="@Url.Content(project.ExternalLink)">View Project</a>
+                        </div>
+                    </div>
                 </div>
             }
         </div>
