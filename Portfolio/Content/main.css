@@ -62,7 +62,7 @@ header {
       font-weight: 300;
       text-transform: uppercase; }
     .hero-container .hero-text p {
-      width: 60%;
+      width: 80%;
       font-size: 1.618rem; }
 
 .call-to-action-btn {
@@ -96,7 +96,7 @@ header {
         background: #2f3640; }
 
 .project p {
-  margin-bottom: 1.618rem; }
+  margin-bottom: 2.618rem; }
 
 .project .call-to-action-btn {
   padding: 0.618rem 1rem;
